@@ -17,7 +17,7 @@
         <div slot="text">购物车</div>
       </TabbarItem>
       <TabbarItem path='/myself'>
-        <img slot="icon" src="@/assets/img/tabbar/我 的.png" />
+        <img slot="icon" src="@/assets/img/tabbar/我 的 .png" />
         <img slot="icon-active" src="@/assets/img/tabbar/我 的 (1).png" />
         <div slot="text">我的</div>
       </TabbarItem>
