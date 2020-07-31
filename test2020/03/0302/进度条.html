@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  #div1 {
+    width: 800px;
+    height: 20px;
+    background-color: gray;
+    position: relative;
+    margin: 0 auto;
+    /* left: 50%;
+    transform: translateX(-50%); */
+  }
+  #div2 {
+    width: 20px;
+    height: 20px;
+    left: 0;top: 0;
+    background: red;
+    /* border: 1px solid black; */
+    /* box-sizing: border-box; */
+    position: absolute;
+  }
+  #div3 {
+    height: 20px;
+    /* background-color: green; */
+  }
+  </style>
+</head>
+<body>
+  <div id="div1">
+    <div id="div2"></div>
+    <div id="div3"></div>
+  </div>
+  <script>
+    var div1 = document.getElementById('div1');
+    var div2 = document.getElementById('div2');
+    var div3 = document.getElementById('div3');
+    div2.onmousedown = function(event) {
+      var disX = event.clientX - div2.offsetLeft
+      // var disY = event.clientY - div2.offsetTop
+      
+      document.onmousemove = function (event) {
+        var l = event.clientX - disX
+        // var t = event.clientY - disY
+        if(l < 0) {
+          l = 0
+        } else if (l > div1.offsetWidth - div2.offsetWidth) {
+          l = div1.offsetWidth - div2.offsetWidth
+        }
+        div2.style.left = l + 'px'
+        // div2.style.top = event.clientY - disY + 'px'
+        // if(t < 0) {
+        //   t = 0
+        // } else if (t > div1.offsetHeight - div2.offsetHeight) {
+        //   t = div1.offsetHeight - div2.offsetHeight
+        // }
+        var b = l / (div1.offsetWidth - div2.offsetWidth);
+        // document.title = b
+        div3.style.width = l + 'px'
+        div3.style.backgroundColor = 'green'
+        
+      }
+      document.onmouseup = function() {
+        document.onmousemove = null
+        document.onmouseup = null
+      }
+    }
+  </script>
+</body>
+</html>

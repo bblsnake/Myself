@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #btn input{
+      background-color: #ccc;
+    }
+    #btn .active {
+      background-color: yellow;
+    }
+    #txt div{
+      background-color: #aaa;
+      width: 200px;
+      height: 200px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="btn">
+    <input class="active" type="button" value="选项1">
+    <input type="button" value="选项2">
+    <input type="button" value="选项3">
+    <input type="button" value="选项4">
+  </div>
+  <div id="txt">
+    <div style="display: block;">1111</div>
+    <div>2222</div>
+    <div>3333</div>
+    <div>4444</div>
+  </div>
+  <script>
+    var btn = document.getElementById('btn')
+    var btnInput = btn.getElementsByTagName('input')
+    var txt = document.getElementById('txt')
+    var txtInput = txt.getElementsByTagName('div')
+    for(let i = 0; i < btnInput.length; i ++) {
+      btnInput[i].onclick = function () {
+        // console.log(this);
+        for(let i = 0; i < btnInput.length; i ++) {
+          btnInput[i].className = ''
+        }
+        for(let i = 0; i < txtInput.length; i ++) {
+          txtInput[i].style.display = 'none'
+        }
+        this.className = 'active'
+        // btnInput[i].index = i
+        txtInput[i].style.display = 'block'
+        // console.log(this.index);
+      }
+      
+    }
+    
+  </script>
+</body>
+</html>

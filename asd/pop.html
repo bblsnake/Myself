@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  插入排序
+        // 思路：从第二个元素开始与前面的数比较   j随之减小
+        function insert_sort(nums){
+            for(let i=1;i<nums.length;i++){
+                for(let j=i;j>0;j--){
+                    if(nums[j-1]>nums[j]){
+                        var temp = nums[j];
+                        nums[j]=nums[j-1];
+                        nums[j-1]=temp;
+                    }
+                }
+            } 
+        }
+         let arr = [3,5,1,7,6];
+         insert_sort(arr);
+         console.log(arr.join());
+
+         // 选择排序
+         //思路：从第一个数开始 用后面的数以此与它比较  比他小就交换位置  一轮下来最小的数就到了最近前面
+         function select_sort(nums){
+             var len = nums.length;
+             for(let i=0;i<len;i++){
+                 for(let j=i+1;j<len;j++){
+                     if(nums[i]>nums[j]){
+                         var temp = nums[i];
+                         nums[i]=nums[j];
+                         nums[j]=temp;
+                     }
+                 }
+             }
+         }
+         let arr1 = [6,8,1,7,3];
+         select_sort(arr1);
+         console.log(arr1.join());
+
+         //冒泡排序
+         // 思路：以此比较相邻的两个数，小的排在大的前面,第一轮执行完成后最大的元素出现在最后，因此循环次数随之-1  
+         //      因此 每循环一次外面  内层循环随之减1  所以内层循环数=len-1-i
+         function bubb_sort(nums){
+             var len = nums.length;
+             for(let i=0;i<len-1;i++){
+                 for(let j=0;j<len-1-i;j++){
+                     if(nums[j]>nums[j+1]){
+                         var temp = nums[j];
+                         nums[j] = nums[j+1];
+                         nums[j+1] = temp;
+                     }
+                 }
+             }
+         }
+
+         let arr2 = [8,6,4,8,9,2]
+         bubb_sort(arr2);
+         console.log(arr2.join())
+
+    </script>
+</body>
+</html>

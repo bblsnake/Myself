@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>父子组件通信</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <cpn :cnum1='num1' :cnum2='num2' @fnum1='changeF'></cpn>
+  </div>
+
+
+  <template id="cpn">
+    <div>
+      <h2>{{cnum1}}---{{number1}}---{{cnum2}}</h2>
+      <input type="text" :value="number1" @input='num1Input'>
+    </div>
+  </template>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        num1: 1,
+        num2: 0,
+      },
+      methods:{
+        changeF(value) {
+          this.num1 = parseInt(value)
+        }
+      },
+
+      components: {
+        cpn: {
+          template: '#cpn',
+          props: {cnum1: Number, cnum2: Number},
+          data() {
+            return {
+              number1: this.cnum1,
+              number2: this.cnum2
+            }
+          },
+          methods: {
+            num1Input(event) {
+              this.number1 = event.target.value,
+              this.$emit('fnum1', this.number1)
+            }
+          },
+        },
+      }
+    })
+  </script>
+</body>
+</html>

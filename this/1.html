@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+//     let arr = [1, 2, 3];
+//     // console.log(arr);//[1, 2, 3]
+//     console.log(...arr);//1 2 3
+
+// let obj = {
+//   me: '我',
+//   you: '你'
+// }
+// let {me, err, you} = {...obj}
+// console.log(me) // 我
+// console.log(err) // undefined
+// console.log(you) // 你
+
+// function argsFunc () {
+//     console.log('arguments:', arguments)
+// }
+// argsFunc(1, 2, 3) // arguments: [Arguments] { '0': 1, '1': 2, '2': 3 }
+
+// function restFunc (str, ...rest) {
+//   console.log('str:', str)
+//   console.log('rest:', rest)
+// }
+// restFunc('Me', 1, 2, 3) // str: 'Me'
+//                      // rest: [ 1, 2, 3 ]
+// -------------------------------------------------
+
+var name = 'windowPart'
+const testObj = {
+  name: 'objPart',
+  func: function (...rest) {
+    console.log('this.name:', this.name)//this.name: objPart
+    console.log('args:', rest)//args: (2) [1, 2]
+  }
+}
+let arr = [1, 2]
+// testObj调用func
+testObj.func(...arr)
+
+// 修改this指向后outer调用func
+const outer = testObj.func
+outer.call(testObj, ...arr)
+outer.apply(testObj, arr)
+outer.bind(testObj, ...arr)()
+
+//以上输出均为：
+//    this.name: objPart
+//    args: [ 1, 2 ]
+
+
+  </script>
+</body>
+</html>

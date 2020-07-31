@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  *{
+    margin: 0; padding: 0;
+  }
+  .container {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    background-color: #ccc;
+    margin: 0 auto;
+    top: 150px; 
+
+  }
+  .items {
+    position: relative;
+    width: 280px;
+    height: 350px;
+    left: 50%;
+    margin-left: -138px;
+  }
+  .item {
+    width: 70px; 
+    height: 70px;
+    float: left;
+    margin: 10px;
+    /* border: 1px solid red; */
+    background-color: #000;
+    box-sizing: border-box;
+    color: #fff;
+  }
+  .c{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+  }
+  .e{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+  }
+  .content {
+    width: 260px;
+    height: 100px;
+    position: absolute;
+    margin: 20px;
+    font-size: 20px;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="items" id="items">
+      <div class="item"><div class="c">1月</div><div class="e">Mon</div></div>
+      <div class="item"><div class="c">2月</div><div class="e">Mon</div></div>
+      <div class="item"><div class="c">3月</div><div class="e">Mon</div></div>
+      <div class="item"><div class="c">4月</div><div class="e">Mon</div></div>
+      <div class="item"><div class="c">5月</div><div class="e">Mon</div></div>
+      <div class="item"><div class="c">6月</div><div class="e">Mon</div></div>
+      <div class="item"><div class="c">7月</div><div class="e">Mon</div></div>
+      <div class="item"><div class="c">8月</div><div class="e">Mon</div></div>
+      <div class="item"><div class="c">9月</div><div class="e">Mon</div></div>
+      <div class="item"><div class="c">10月</div><div class="e">Mon</div></div>
+      <div class="item"><div class="c">11月</div><div class="e">Mon</div></div>
+      <div class="item"><div class="c">12月</div><div class="e">Mon</div></div>
+    </div>
+    <div class="content">
+      <!-- 这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述 -->
+      1
+    </div>
+  </div>
+  <script>
+  var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  var items = document.getElementById('items')
+  var item = items.getElementsByClassName('item')
+  var content = document.getElementsByClassName('content')
+  for(let i = 0; i < item.length; i ++) {
+    item[i].onclick = function () {
+      // console.log(this);
+      this.index = i;
+      // console.log(this.index);
+      content[0].innerText = arr[this.index]
+    }
+  }
+  </script>
+</body>
+</html>

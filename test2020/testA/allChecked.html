@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="allChecked()">全选</button>
+  <button onclick="notChecked()">全不选</button>
+  <button onclick="resverChecked()">反选</button>
+  <input type="checkbox" name="" id="">
+  <input type="checkbox" name="" id="">
+  <input type="checkbox" name="" id="">
+  <input type="checkbox" name="" id="">
+  <input type="checkbox" name="" id="">
+  <input type="checkbox" name="" id="">
+  <input type="checkbox" name="" id="">
+  <script>
+    var checkbox = document.getElementsByTagName('input')
+    function allChecked() {
+      for(let i = 0; i < checkbox.length; i ++) {
+        checkbox[i].checked = true
+      }
+    }
+    function notChecked() {
+      for(let i = 0; i < checkbox.length; i ++) {
+        checkbox[i].checked = false
+      }
+    }
+    function resverChecked() {
+      for(let i = 0; i < checkbox.length; i ++) {
+        checkbox[i].checked = !checkbox[i].checked
+      }
+    }
+  </script>
+</body>
+</html>

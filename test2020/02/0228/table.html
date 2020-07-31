@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  姓名：<input type="text">
+  年龄：<input type="text">
+  <input type="button" name="" id="" value="添加">
+  <table border="1" width="300" height="16">
+    <thead>
+      <tr>
+        <td>id</td>
+        <td>姓名</td>
+        <td>年龄</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>fbh</td>
+        <td>13</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>f3dwh</td>
+        <td>15</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>ffsgwgfh</td>
+        <td>17</td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    var table1 = document.getElementsByTagName('table')
+    var tbody1 = document.getElementsByTagName('tbody')
+    var tr = document.getElementsByTagName('tr')
+    var input1 = document.getElementsByTagName('input')[0]
+    var input2 = document.getElementsByTagName('input')[1]
+    var btn = document.getElementsByTagName('input')[2]
+    // console.log(tr.length);
+    for(let i = 0; i < tr.length; i ++){
+      if(i % 2) {
+        tr[i].style.background = 'red'
+      } else {
+        tr[i].style.background = 'green'
+      }
+      tr[i].onmouseover = function() {
+        oldColor = this.style.background
+        this.style.background = 'black'
+      }
+      tr[i].onmouseout = function() {
+        this.style.background = oldColor
+      }
+    }
+    btn.onclick = function () {
+      var traaa = document.createElement('tr')
+      var td = document.createElement('td')
+      td.innerHTML = tr.length
+      traaa.appendChild(td)
+
+      var td = document.createElement('td')
+      td.innerHTML = input1.value
+      traaa.appendChild(td)
+
+      var td = document.createElement('td')
+      td.innerHTML = input2.value
+      traaa.appendChild(td);
+
+      // tbody1.appendChild(traaa)
+      // tbody1.insertBefore(traaa, tr[tr.length])
+      // console.log(tr.length);
+      
+    }
+  </script>
+</body>
+</html>

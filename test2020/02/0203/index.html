@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #A {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+    }
+    #B {
+      width: 200px;
+      height: 200px;
+      background-color: gray;
+      float: left;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="A"></div>
+  <div id="B"></div>
+  <script>
+    var A = document.getElementById('A')
+    var B = document.getElementById('B')
+    var timer = 0;
+    A.addEventListener('mouseover', function() { 
+          B.style.display = 'block'
+      }
+    )
+    A.addEventListener('mouseout', function(){ timer = setTimeout(() => {
+        B.style.display = 'none'
+      }, 1000)
+      }
+    )
+    B.addEventListener('mouseover', function() { 
+          clearTimeout(timer)
+      }
+    )
+    B.addEventListener('mouseout', function() { setTimeout(() => {
+          B.style.display = 'none'
+        }, 1000)
+      }
+    )
+  </script>
+</body>
+</html>

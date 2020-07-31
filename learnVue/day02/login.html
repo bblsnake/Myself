@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户登录切换</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div v-if='user'>
+      <label for="">用户名：</label>
+      <textarea placeholder="请输入用户名"></textarea>
+    </div>
+    <div v-else>
+      <label for="">用户邮箱：</label>
+      <textarea placeholder="请输入用户邮箱"></textarea>
+    </div>
+    <button @click='change'>切换类型</button>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        user: true
+      },
+      methods: {
+        change() {
+          this.user = !this.user
+        }
+      },
+    })
+  </script>
+</body>
+</html>

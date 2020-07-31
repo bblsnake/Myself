@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      opacity: 0.3;
+      position: relative;
+      float: left;
+      margin: 2px;
+    }
+    button {
+      position: absolute; 
+      /* float: left; */
+    }
+  </style>
+</head>
+<body>
+  <div id="div"></div>
+  <div id="div"></div>
+  <div id="div"></div>
+  <button id="BW">变宽</button>
+  <button id="BH">变高</button>
+  <!-- <button id="OPCT">透明度</button> -->
+  <script>
+    var div = document.getElementById('div')
+    var BW = document.getElementById('BW')
+    var BH = document.getElementById('BH')
+    var OPCT = document.getElementById('OPCT')
+    var timer = null;
+    function Move(val, obj) {
+      var speed;
+      clearInterval(obj.timer);
+      obj.timer = setInterval(() => {
+        if(val == obj.offsetWidth){
+          clearInterval(obj.timer);
+        } else {
+          speed = (val - obj.offsetWidth) / 50
+          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+          obj.style.width = obj.offsetWidth + speed + 'px'
+        }
+      }, 30)
+    }
+    window.onload = function () {
+      div.onmouseover = function() {
+        Move(300, div)
+      }
+    }
+  </script>
+</body>
+</html>

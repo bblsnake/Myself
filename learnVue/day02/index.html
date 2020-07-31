@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-model的使用</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- <label for="aaa">
+      <input type="checkbox" id="aaa" v-model="agree">同意
+    </label>
+    {{agree}}
+    <button :disabled="!agree">下一个</button> -->
+
+      <!-- <input type="checkbox" value="篮球" v-model="hobbies">篮球
+      <input type="checkbox" value="足球" v-model="hobbies">足球
+      <input type="checkbox" value="羽毛球" v-model="hobbies">羽毛球
+      <input type="checkbox" value="乒乓球" v-model="hobbies">乒乓球
+      <h2>你选择了：{{hobbies}}</h2> -->
+      
+    <!-- <select name="" id="" v-model="fruit" multiple>
+      <option value="苹果">苹果</option>
+      <option value="香蕉">香蕉</option>
+      <option value="菠萝">菠萝</option>
+      <option value="柠檬">柠檬</option>
+    </select>
+    <h2>你选择的水果是：{{fruit}}</h2> -->
+
+    <label v-for='item in hobbiesArray'>
+      <input type="checkbox" :value='item' v-model="hobbies">{{item}}
+    </label>
+    <h2>您的爱好有: {{hobbies}}</h2>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        agree: false,
+        hobbies: [],
+        fruit: '苹果',
+        hobbiesArray: ['篮球','足球','羽毛球','乒乓球','台球']
+      },
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="text1">
+  <input type="text" id="text2">
+  <input type="button" name="" value="求和" id="btn">
+  <script>
+    var text1 = document.getElementById('text1')
+    var text2 = document.getElementById('text2')
+    var btn = document.getElementById('btn')
+    btn.onclick = function() {
+      result = parseInt(text1.value) + parseInt(text2.value)
+      alert(result)
+    }
+  </script>
+</body>
+</html>

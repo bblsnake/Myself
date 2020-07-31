@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>作用域插槽</title>
+</head>
+<body>
+  <div id="app">
+    <cpn>
+      <div slot-scope='lang'>
+        <!-- <span v-for='item in lang.data'>{{item}}</span> -->
+        <span>{{lang.data.join(' * ')}}</span>
+      </div>
+    </cpn>
+    <cpn></cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <slot :data='language'>
+        <ul>
+          <li v-for='item in language'>{{item}}</li>
+        </ul>
+      </slot>
+    </div>
+  </template>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        
+      },
+
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              language: ['c#', 'c++', 'JS', 'java', 'go', 'python']
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  #text {
+    width: 100%;
+    height: 800px;
+    text-align: center;
+    line-height: 800px;
+    font-size: 50px;
+  }
+  </style>
+</head>
+<body>
+  <div id="text"></div>
+  <script>
+    
+    function time() {
+      var text = document.getElementById('text')
+      var date = new Date()
+      var year = date.getFullYear()
+      var month = date.getMonth()
+      var day = date.getDate()
+      var hour = date.getHours()
+      var minutes = date.getMinutes()
+      var seconds = date.getSeconds()
+      text.innerText = year + '年' + (month + 1) + '月' + day + '日' + hour + '时' + minutes + '分' + seconds + '秒'
+    }
+    setInterval(time, 1000)
+    time();
+   
+  </script>
+</body>
+</html>

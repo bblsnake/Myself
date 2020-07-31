@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  *{
+    margin: 0; padding: 0;
+  }
+  #d {
+    width: 800px;
+    height: 150px;
+    margin: 200px auto;
+    position: relative;
+    border: 1px solid black;
+    overflow: hidden;
+  }
+  #ul {
+
+    position: absolute;
+    
+  }
+  ul li {
+    list-style: none;
+    float: left;
+  }
+  img {
+    width: 200px;
+    height: 150px;
+  }
+  </style>
+</head>
+<body>
+  <div id="d">
+    <ul id="ul">
+      <li class="li"><img src="./1.png" alt=""></li>
+      <li class="li"><img src="./2.jpg" alt=""></li>
+      <li class="li"><img src="./timg (1).jpg" alt=""></li>
+      <li class="li"><img src="./timg (2).jpg" alt=""></li>
+    </ul>
+  </div>
+  <a href="javascript:;">左</a>
+  <a href="javascript:;">右</a>
+  <button id="btn">开始</button>
+  <script>
+    var speed = 200
+    var ul = document.getElementById('ul')
+    var btn = document.getElementById('btn')
+    var li = document.getElementsByTagName('li')
+    ul.innerHTML += ul.innerHTML
+    ul.style.width = li[0].offsetWidth * li.length + 'px'
+    btn.onclick = function () {
+      setInterval(() => {
+        if(ul.offsetLeft - 1< -ul.offsetWidth / 2){
+          ul.style.left = '0'
+        }
+        if(ul.offsetLeft + 1 > 0){
+          ul.style.left =  -ul.offsetWidth / 2 + 'px'
+        }
+        // console.log(ul.offsetLeft, ul.offsetWidth);
+        
+        var oldleft = parseInt(ul.offsetLeft)
+        var newleft = oldleft + speed
+        ul.style.left = newleft + 'px'
+        // console.log(1);
+        
+      }, 1000)
+    }
+    var a1 = document.getElementsByTagName('a')[0]
+    var a2 = document.getElementsByTagName('a')[1]
+    a1.onclick = function() {
+      speed = -200
+    }
+    a2.onclick = function() {
+      speed = 200
+    }
+  </script>
+</body>
+</html>
